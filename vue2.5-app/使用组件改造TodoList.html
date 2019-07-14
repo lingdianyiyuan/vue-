@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>使用组建改造TodoList</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="inputValue">
+        <button v-on:click="ButClick">添加</button>
+        <ul>
+            <!-- <li>{{item}}</li> -->
+            <todo-list v-bind:content="item" v-for="item in list"></todo-list>
+        </ul>
+    </div>
+    <script>
+        // Vue.component("TodoList",{
+        //     props: ['content'],
+        //     template:"<li>{{content}}</li>"
+
+        // })
+        var TodoList = {
+            props:["content"],
+            template:"<li>{{content}}</li>"
+
+        }
+
+        var app = new Vue({
+            el:"#app",
+            components:{
+                TodoList:TodoList
+            },
+            data:{
+                list:[],
+                inputValue:""
+            },
+            methods: {
+                ButClick:function(){
+                    this.list.push(this.inputValue);
+                    this.inputValue = " ";
+                }
+            }
+        })
+    </script>
+</body>
+</html>
