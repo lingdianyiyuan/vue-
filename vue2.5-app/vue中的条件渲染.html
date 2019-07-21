@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue中的条件渲染</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- dome中不存在元素 -->
+        <div v-if="show">{{message}}</div>
+        <!-- dome中存在元素，style=“display:none;” -->
+        <div v-show="show">{{message}}</div>
+        <!-- v-if v-else-if v-esle的使用方法，中间不允许插入其他元素 -->
+        <div v-if="active==='a'">{{message}}</div>
+        <div v-else-if="active==='b'">{{world}}</div>
+        <div v-else>Bye world</div>
+        <!-- key的使用方法 -->
+        
+        <div v-if="active==='a'">
+            用户名：<input type="text" key="name">
+        </div>
+        <div v-else-if="active==='b'">
+            邮箱名：<input type="text" key="email">
+        </div>
+        <div v-else>
+            密码：<input type="text" key="passworld">
+        </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                show:false,
+                active:"b",
+                message:"hello world",
+                world:"Hi world"
+            }
+        })
+    </script>
+</body>
+</html>
