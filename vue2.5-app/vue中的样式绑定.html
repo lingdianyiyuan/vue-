@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue中的样式绑定</title>
+    <script src="vue.js"></script>
+    <style>
+        .starct{
+            color: red;
+        } 
+        .active{
+            color: blueviolet;
+        }   
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- class的对象绑定 -->
+        <!-- <div class="starct" 
+             v-bind:class="{active:isActive}" 
+             v-on:click="ButClick">{{message}}
+        </div> -->
+        <!-- class的数组绑定 -->
+            <!-- <div :class=[active]
+                 @click="ButClick"
+                 >{{message}}
+            </div> -->
+        <!-- style绑定 -->
+            <div @click="ButClick"
+                 :style="[styleObj,{fontSize:'20px'}]"
+                 >
+                 {{message}}
+            </div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                message:"message",
+                // isActive:false,
+                styleObj:{
+                    color:"red"
+                }
+            },
+            methods: {
+                ButClick:function(){
+                    // class的对象绑定
+                    // this.isActive = !this.isActive;
+
+                    // class的数组绑定
+                    // if(this.active === "active"){
+                    //     this.active = "";
+                    // }else{
+                    //     this.active = "active";
+                    // }
+                    // this.active = this.active === "active" ? "" : "active";
+
+                    //style绑定
+                    this.styleObj.color = this.styleObj.color==="red"?"blueviolet":"red"
+                }
+            }
+        })
+    </script>
+</body>
+</html>
