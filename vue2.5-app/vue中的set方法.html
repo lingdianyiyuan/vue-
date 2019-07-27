@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>vue中的set方法</title>
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>数组中使用set方法；</div>
+        <div v-for="(itme,index) of list">{{itme}}---{{index}}</div>
+        <div>对象中使用set方法；</div>
+        <div v-for="(itme,val,index) of userInfo" >{{itme}}----{{val}}-----{{index}}</div>
+    </div>
+    <script>
+        var vm = new Vue({
+            el:"#app",
+            data:{
+                list:[
+                    "hello",
+                    "Dell",
+                    "Lee"
+                ],
+                userInfo:{
+                    "name":"Dell",
+                    "age":28,
+                    "add":"beijing"
+                }
+            }
+        })
+
+
+        //数组中使用set方法；
+        //Vue.set(vm.list, 3, "one")
+        //vm.$set(vm.list, 4, "two")
+
+        //对象中使用set方法；
+        // Vue.set(vm.userInfo,"one","one")
+        // vm.$set(vm.userInfo,"two","two")
+    </script>
+</body>
+</html>
