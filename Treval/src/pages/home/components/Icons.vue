@@ -1,6 +1,6 @@
 <template>
   <div class="icons">
-    <swiper :options="swiperOption">
+    <swiper>
       <swiper-slide v-for="(page,index ) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
           <div class="icon-img">
@@ -18,9 +18,6 @@ export default {
   name: 'HomeIcons',
   data () {
     return {
-      swiperOption: {
-        pagination: '.swiper-pagination'
-      },
       IconsList: [
         {
           id: '001',
@@ -73,9 +70,9 @@ export default {
   computed: {
     pages () {
       const pages = []
-      this.IconsList.forEach((item,index) => {
+      this.IconsList.forEach((item, index) => {
         const page = Math.floor(index / 8)
-        if(!pages[page]){
+        if (!pages[page]) {
           pages[page] = []
         }
         pages[page].push(item)
@@ -88,7 +85,7 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~styles/minins.styl'
-@import '~styles/varibles.styl'  
+@import '~styles/varibles.styl'
 .icons >>> .swiper-container
   height: 0;
   padding-bottom: 50%;
