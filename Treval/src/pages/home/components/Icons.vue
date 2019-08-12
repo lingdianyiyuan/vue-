@@ -1,8 +1,8 @@
 <template>
   <div class="icons">
     <swiper :options="swiperOption">
-      <swiper-slide>
-        <div class="icon" v-for="item of IconsList" :key="item.id">
+      <swiper-slide v-for="(page,index ) of pages" :key="index">
+        <div class="icon" v-for="item of page" :key="item.id">
           <div class="icon-img">
             <img class="icon-img-content" :src="item.imgURL" alt/>
           </div>
@@ -69,12 +69,26 @@ export default {
         }
       ]
     }
+  },
+  computed: {
+    pages () {
+      const pages = []
+      this.IconsList.forEach((item,index) => {
+        const page = Math.floor(index / 8)
+        if(!pages[page]){
+          pages[page] = []
+        }
+        pages[page].push(item)
+      })
+      return pages
+    }
   }
 }
-
 </script>
 
 <style lang="stylus" scoped>
+@import '~styles/minins.styl'
+@import '~styles/varibles.styl'  
 .icons >>> .swiper-container
   height: 0;
   padding-bottom: 50%;
@@ -106,5 +120,6 @@ export default {
       height: 0.44rem;
       line-height: 0.44rem;
       text-align: center;
-      color: #000;
+      color: $textColor;
+      ellipsis()
 </style>
