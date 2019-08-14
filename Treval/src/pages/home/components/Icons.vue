@@ -2,7 +2,7 @@
   <div class="icons">
     <swiper :options='swiperOption'>
       <swiper-slide v-for="(page,index ) of pages" :key="index">
-        <div class="icon" v-for="item of page" :key="item.id">
+        <div class="icon" v-for="item of icons" :key="item.id">
           <div class="icon-img">
             <img class="icon-img-content" :src="item.imgURL" alt/>
           </div>
@@ -20,60 +20,16 @@ export default {
     return {
       swiperOption: {
         pagination: '.swiperOption'
-      },
-      IconsList: [
-        {
-          id: '001',
-          imgURL: 'http://img1.qunarzz.com/piao/fusion/1803/95/f3dd6c383aeb3b02.png',
-          desc: '景点门票'
-        },
-        {
-          id: '002',
-          imgURL: 'http://img1.qunarzz.com/piao/fusion/1803/6c/9e54a8540fee0102.png',
-          desc: '故宫'
-        },
-        {
-          id: '003',
-          imgURL: 'http://img1.qunarzz.com/piao/fusion/1804/ff/fdf170ee89594b02.png',
-          desc: '北京必游'
-        },
-        {
-          id: '004',
-          imgURL: 'http://img1.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',
-          desc: '水上乐园'
-        },
-        {
-          id: '005',
-          imgURL: 'http://img1.qunarzz.com/piao/fusion/1803/3e/86314b2af03b7502.png',
-          desc: '一日游'
-        },
-        {
-          id: '006',
-          imgURL: 'http://img1.qunarzz.com/piao/fusion/1803/67/9a1678221b8e0e02.png',
-          desc: '古北水镇'
-        },
-        {
-          id: '007',
-          imgURL: 'http://img1.qunarzz.com/piao/fusion/1803/76/eb88861d78fb9902.png',
-          desc: '动植物园'
-        },
-        {
-          id: '008',
-          imgURL: 'http://img1.qunarzz.com/piao/fusion/1803/fa/2548667cb6e902.png',
-          desc: '北京野生动物园'
-        },
-        {
-          id: '009',
-          imgURL: 'http://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20194/b4511345827006994aa1980a3886f0ac.png',
-          desc: '北京世园会'
-        }
-      ]
+      }
     }
+  },
+  props: {
+    icons: Array
   },
   computed: {
     pages () {
       const pages = []
-      this.IconsList.forEach((item, index) => {
+      this.icons.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
@@ -83,7 +39,9 @@ export default {
       return pages
     }
   }
+
 }
+
 </script>
 
 <style lang="stylus" scoped>
