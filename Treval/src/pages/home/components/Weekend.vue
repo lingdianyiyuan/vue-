@@ -27,7 +27,8 @@ export default {
 <style lang="stylus" scoped>
 @import '~styles/minins.styl';
     .weekend
-        margin-top :.1rem;
+        background :#ffffff;
+        margin-bottom :.2rem;
         .weekend-title
             height :.8rem;
             line-height :.8rem;

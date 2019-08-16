@@ -54,9 +54,10 @@ export default {
     margin :.1rem;
 .recommend-content
     margin-top: 0.2rem;
+    background :#ffffff;
     .recommend-title
         height: 0.44rem;
-        padding: 0 0.1rem;
+        padding: .1rem 0.1rem;
         line-height: 0.44rem;
         font-size: 0.32rem;
         .recommend-img

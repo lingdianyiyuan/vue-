@@ -2,7 +2,7 @@
   <div class="icons">
     <swiper :options='swiperOption'>
       <swiper-slide v-for="(page,index ) of pages" :key="index">
-        <div class="icon" v-for="item of icons" :key="item.id">
+        <div class="icon" v-for="item of page" :key="item.id">
           <div class="icon-img">
             <img class="icon-img-content" :src="item.imgURL" alt/>
           </div>
@@ -50,6 +50,8 @@ export default {
 .icons >>> .swiper-container
   height: 0;
   padding-bottom: 50%;
+  background :#ffffff;
+  margin-bottom :.2rem;
 .icon
     float: left;
     position: relative;
@@ -57,7 +59,6 @@ export default {
     width: 25%;
     height: 0;
     padding-bottom: 25%;
-
     .icon-img
       position: absolute;
       top: 0;
