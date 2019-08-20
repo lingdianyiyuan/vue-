@@ -6,7 +6,7 @@
 
 <script>
 export default {
-    name: 'CitySearch.vue'
+  name: 'CitySearch.vue'
 }
 </script>
 
