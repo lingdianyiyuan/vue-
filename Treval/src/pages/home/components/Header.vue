@@ -7,13 +7,17 @@
         <span class="iconfont">&#xe65c;</span>
         输入城市/景点/游玩主题</div>
     <router-link to="./City" >
-        <div class="header-right">{{this.$store.state.city}}<span class="iconfont icon-city">&#xe600;</span></div>
+        <div class="header-right">{{this.city}}<span class="iconfont icon-city">&#xe600;</span></div>
     </router-link>
 </div>
 </template>
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  computed: {
+    ...mapState(['city'])
+  }
 }
 </script>
 <style lang="stylus" scoped>
@@ -41,7 +45,8 @@ export default {
             color :#ccc;
             padding-left :.24rem;
         .header-right
-            width :1.24rem;
+            min-width :1.04rem;
+            padding :0 .1rem;
             float :right;
             text-align :center;
             color :#fff;
